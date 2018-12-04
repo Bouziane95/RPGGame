@@ -21,6 +21,14 @@
 		84C54E2821B6BA09009D482B /* Colossus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E2721B6BA09009D482B /* Colossus.swift */; };
 		84C54E2A21B6BA0E009D482B /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E2921B6BA0E009D482B /* Dwarf.swift */; };
 		84C54E2C21B6BA1D009D482B /* Wizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E2B21B6BA1D009D482B /* Wizard.swift */; };
+		84C54E2E21B6BD14009D482B /* Vault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E2D21B6BD14009D482B /* Vault.swift */; };
+		84C54E3021B6BD4D009D482B /* Excalibur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E2F21B6BD4D009D482B /* Excalibur.swift */; };
+		84C54E3221B6BDF6009D482B /* WoodenSword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E3121B6BDF6009D482B /* WoodenSword.swift */; };
+		84C54E3421B6BE29009D482B /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E3321B6BE29009D482B /* Arc.swift */; };
+		84C54E3621B6BED5009D482B /* WoodenStaff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E3521B6BED5009D482B /* WoodenStaff.swift */; };
+		84C54E3821B6BEE7009D482B /* ElderWand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E3721B6BEE7009D482B /* ElderWand.swift */; };
+		84C54E3A21B6BEF4009D482B /* Spoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E3921B6BEF4009D482B /* Spoon.swift */; };
+		84C54E3C21B6BF06009D482B /* GandalfScepter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C54E3B21B6BF06009D482B /* GandalfScepter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +59,14 @@
 		84C54E2721B6BA09009D482B /* Colossus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colossus.swift; sourceTree = "<group>"; };
 		84C54E2921B6BA0E009D482B /* Dwarf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
 		84C54E2B21B6BA1D009D482B /* Wizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wizard.swift; sourceTree = "<group>"; };
+		84C54E2D21B6BD14009D482B /* Vault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vault.swift; sourceTree = "<group>"; };
+		84C54E2F21B6BD4D009D482B /* Excalibur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excalibur.swift; sourceTree = "<group>"; };
+		84C54E3121B6BDF6009D482B /* WoodenSword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodenSword.swift; sourceTree = "<group>"; };
+		84C54E3321B6BE29009D482B /* Arc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
+		84C54E3521B6BED5009D482B /* WoodenStaff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodenStaff.swift; sourceTree = "<group>"; };
+		84C54E3721B6BEE7009D482B /* ElderWand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElderWand.swift; sourceTree = "<group>"; };
+		84C54E3921B6BEF4009D482B /* Spoon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spoon.swift; sourceTree = "<group>"; };
+		84C54E3B21B6BF06009D482B /* GandalfScepter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GandalfScepter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +105,7 @@
 				84C54E1121B6B926009D482B /* Game.swift */,
 				84C54E1321B6B966009D482B /* Character.swift */,
 				84C54E1521B6B97B009D482B /* Player.swift */,
+				84C54E2D21B6BD14009D482B /* Vault.swift */,
 			);
 			path = RPGGame;
 			sourceTree = "<group>";
@@ -101,6 +118,13 @@
 				84C54E1D21B6B9BC009D482B /* Axe.swift */,
 				84C54E1F21B6B9CA009D482B /* Staff.swift */,
 				84C54E2121B6B9D7009D482B /* BareHand.swift */,
+				84C54E2F21B6BD4D009D482B /* Excalibur.swift */,
+				84C54E3121B6BDF6009D482B /* WoodenSword.swift */,
+				84C54E3321B6BE29009D482B /* Arc.swift */,
+				84C54E3521B6BED5009D482B /* WoodenStaff.swift */,
+				84C54E3721B6BEE7009D482B /* ElderWand.swift */,
+				84C54E3921B6BEF4009D482B /* Spoon.swift */,
+				84C54E3B21B6BF06009D482B /* GandalfScepter.swift */,
 			);
 			path = Weapon;
 			sourceTree = "<group>";
@@ -175,18 +199,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C54E1A21B6B99D009D482B /* Weapon.swift in Sources */,
+				84C54E3221B6BDF6009D482B /* WoodenSword.swift in Sources */,
+				84C54E3421B6BE29009D482B /* Arc.swift in Sources */,
 				84C54E2621B6B9FC009D482B /* Fighter.swift in Sources */,
+				84C54E3621B6BED5009D482B /* WoodenStaff.swift in Sources */,
+				84C54E3A21B6BEF4009D482B /* Spoon.swift in Sources */,
 				84C54E2221B6B9D7009D482B /* BareHand.swift in Sources */,
 				84C54E1E21B6B9BC009D482B /* Axe.swift in Sources */,
 				84C54E2821B6BA09009D482B /* Colossus.swift in Sources */,
+				84C54E3821B6BEE7009D482B /* ElderWand.swift in Sources */,
 				84C54E2021B6B9CA009D482B /* Staff.swift in Sources */,
 				84C54E1621B6B97B009D482B /* Player.swift in Sources */,
 				84C54E2A21B6BA0E009D482B /* Dwarf.swift in Sources */,
 				84C54E1421B6B966009D482B /* Character.swift in Sources */,
+				84C54E3021B6BD4D009D482B /* Excalibur.swift in Sources */,
+				84C54E2E21B6BD14009D482B /* Vault.swift in Sources */,
 				84C54E0B21B6B8CC009D482B /* main.swift in Sources */,
 				84C54E1221B6B926009D482B /* Game.swift in Sources */,
 				84C54E2421B6B9EA009D482B /* Classe.swift in Sources */,
 				84C54E2C21B6BA1D009D482B /* Wizard.swift in Sources */,
+				84C54E3C21B6BF06009D482B /* GandalfScepter.swift in Sources */,
 				84C54E1C21B6B9AE009D482B /* Sword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Player{
+class Player: Vault{
     //number ID to identify the player
     var id : Int
     //name of the player

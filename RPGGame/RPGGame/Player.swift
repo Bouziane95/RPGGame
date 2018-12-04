@@ -191,3 +191,162 @@ class Player{
         } while inputRole == false
 }
    
+    // ///////////////////
+    // MARK: TARGET     //
+    // //////////////////
+    
+    //function to target a ennemy player and attack
+    func targetEnnemy(ennemyPlayer: Player, characters: [Character], id: Int){
+        var characters = characters
+        let target = ennemyPlayer.playerTeam[id]
+        characters.append(target)
+        target.attack(from: characters[0], on: characters[1], of: ennemyPlayer)
+        characters[0].characterAttackReset()
+    }
+    
+    //function to heal a target of your team
+    func targetTeammate(characters: [Character], id: Int){
+        var characters = characters
+        let target = self.playerTeam[id]
+        characters.append(target)
+        target.heal(from: characters[0], on: characters[1])
+        characters[0].characterAttackReset()
+        
+    }
+    
+    // ///////////////////
+    // MARK: HEAL       //
+    // //////////////////
+    
+    func healTarget(_ characters: inout[Character]){
+        var inputRole: Bool = false
+        
+        repeat{
+            
+            let choice = readLine()
+            switch choice{
+            case "1":
+                targetTeammate(characters: characters, id: 0)
+                inputRole = true
+            case "2":
+                targetTeammate(characters: characters, id: 1)
+                inputRole = true
+            case "3":
+                targetTeammate(characters: characters, id: 2)
+                inputRole = true
+            default:
+                print("Veuillez choisir entre 1,2 et 3")
+                inputRole = false
+                
+            }
+            
+        }while inputRole == false
+    }
+    
+    // ///////////////////
+    // MARK: FIGHT     //
+    // //////////////////
+    
+    func fight(against ennemyPlayer: Player){
+        //Array of the characters choosed by the players
+        var characters = [Character]()
+        
+        //1st: Choose an attacker
+        print("Selectionnez le personnage qui va attaquer(Tapez 1,2 ou 3)")
+        print()
+        showPlayerChoice(of: self.playerTeam)
+        chooseChar(charac: &characters)
+        
+        //Random: Random spawn a vault
+        randomSpawnWeapons(for: characters[0])
+        
+        //2a: Heal a teammate
+        if characters[0].classe == .Wizard{
+            print("Choisissez le coequipier a soigner (Tapez 1,2 ou 3)")
+            print()
+            showPlayerChoice(of: self.playerTeam)
+            healTarget(&characters)
+        }else{
+            
+            //2b: Attack an annemy
+            print("Choisissez votre cible (Tapez 1,2 ou 3)")
+            print()
+            showEnnemyChoice(team: ennemyPlayer.playerTeam, ennemy: ennemyPlayer)
+            
+            var inputRole: Bool = false
+            
+            repeat{
+                let choice = readLine()
+                switch choice {
+                case "1" :
+                    targetEnnemy(ennemyPlayer: ennemyPlayer, characters: characters, id: 0)
+                    inputRole = true
+                case "2" :
+                    targetEnnemy(ennemyPlayer: ennemyPlayer, characters: characters, id: 1)
+                    inputRole = true
+                case "3" :
+                    targetEnnemy(ennemyPlayer: ennemyPlayer, characters: characters, id: 2)
+                    inputRole = true
+                default:
+                    print("Veuillez faire un choix entre 1,2 et 3")
+                    inputRole = false
+                }
+            }while inputRole == false
+        }
+        
+    }
+    
+    //function to make the attack turn, i made a loop to force the player to choose between choice 1 or 2
+    func turn(against ennemyPlayer: Player){
+        
+        print("Au tour de \(self.name) de jouer")
+        print()
+        print("Que souhaitez vous faire ?")
+        print()
+        print("1. Voir les stats de votre équipe ? - Tapez 1")
+        print("2. Combattre (attaquer ou soigner) - Tapez 2")
+        
+        var inputRole: Bool = false
+        repeat{
+            let playerChoice = readLine()
+            switch playerChoice{
+            case "1":
+                showCaracTeam()
+                turn(against: ennemyPlayer)
+                inputRole = true
+            case "2":
+                fight(against: ennemyPlayer)
+                inputRole = true
+            default:
+                print("Veuillez choisir entre le choix 1 ou 2.")
+                inputRole = false
+            }
+        }while inputRole == false
+        
+        
+    }
+    
+    // ///////////////////
+    // MARK: STATS     //
+    // //////////////////
+    
+    //function to show the team (Wizard is by one side because of the heal skill)
+    func showCaracTeamDetail(id: Int) -> String{
+        let detail : String
+        
+        if playerTeam[id].classe == .Wizard{
+            detail = " Nom : \(playerTeam[id].name) Classe : \(playerTeam[id].classe) HP : \(playerTeam[id].healthpoint) Arme : \(playerTeam[id].weapon.name) Soins : \(playerTeam[id].weapon.damages)"
+        } else{
+            detail = " Nom : \(playerTeam[id].name) Classe : \(playerTeam[id].classe) HP : \(playerTeam[id].healthpoint) Arme : \(playerTeam[id].weapon.name) Dommages : \(playerTeam[id].weapon.damages)"
+        }
+        return detail
+    }
+    
+    //func to show the team carac updated
+    func showCaracTeam(){
+        for i in 0..<playerTeam.count{
+            print("Heros n°\(i+1)" + "\(showCaracTeamDetail(id: i))")
+        }
+    }
+}
+

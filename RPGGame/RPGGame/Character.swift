@@ -88,3 +88,95 @@ class Character {
             print("Vous vous équipez de \(randomWeaponsG.name) et vous faites \(randomWeaponsG.damages) points de dommage.")
         }
 }
+
+    //The following functions is for the different class ability
+    private func offensiveAbilitys(_ attacker: Character, _ target: Character){
+        //random number that allows to check if the ability is casted
+        let interval = Int.random(in: 0...10)
+        
+        if interval >= 6{
+            switch self.classe{
+            case .Fighter:
+                warriorAbility(attacker, target)
+            default:
+                break
+            }
+        }
+    }
+    
+    private func defensiveAbilitys(_ target: Character, _ attacker: Character){
+        //random number that allows to check if the ability is casted
+        let interval = Int.random(in: 0...10)
+        
+        if interval >= 6{
+            switch self.classe{
+            case .Colossus:
+                colossusAbility(target, attacker)
+            case .Wizard:
+                wizardAbility(target, attacker)
+            case .Dwarf:
+                dwarfAbility(target, attacker)
+            default:
+                break
+                
+            }
+        }
+        
+    }
+    
+    //function to reset attackers damage at the end of the turn, to prevents them to keep the buffed damages
+    public func characterAttackReset(){
+        weapon.damages = weapon.defaultDamageValue
+    }
+    
+    // //////////////// //
+    // MARK: WARRIOR   //
+    // //////////////// //   //offensif
+    
+    func warriorAbility(_ attacker: Character, _ target: Character){
+        attacker.weapon.damages *= 2
+        print("\(attacker.name) le \(attacker.classe) utilise 'Cri de Guerre !' et inglige un coup critique de \(attacker.weapon.damages) points de dégats. Il double son attaque !")
+        print()
+    }
+    
+    // //////////////// //
+    // MARK: COLOSSUS   //
+    // //////////////// //   //defensif
+    
+    func colossusAbility(_ target: Character, _ attacker: Character){
+        attacker.weapon.damages = 0
+        print("\(self.name) le \(self.classe) utilise 'Mur de Fer !' et bloque l'attaque. Il ne reçoit aucun dégats !")
+        print()
+        
+    }
+    
+    // //////////////// //
+    // MARK: WIZARD  //
+    // //////////////// //  //defensif
+    
+    func wizardAbility(_ target: Character, _ attacker: Character){
+        attacker.weapon.damages -= 5
+        //To avoid negative damages wich can heal the wizard and go out of his maxHP
+        if attacker.weapon.damages < 0{
+            attacker.weapon.damages = 0
+        }
+        print("\(target.name) le \(target.classe) utilise 'Paix !' et diminue de 5 les points de dommages de son assailant !")
+        print()
+    }
+    
+    // //////////////// //
+    // MARK: DWARF       //
+    // //////////////// //   //defensif
+    
+    func dwarfAbility(_ target: Character, _ attacker: Character){
+        attacker.weapon.damages -= 10
+        if attacker.weapon.damages < 0{
+            attacker.weapon.damages = 0
+        }
+        print("\(target.name) le \(target.classe) utilise sa compétence 'Peau de fer'. Il réduit de 10 points les dommages et reçoit donc \(attacker.weapon.damages) points de dégats.")
+        print()
+    }
+    
+    
+    
+}

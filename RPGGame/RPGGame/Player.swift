@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Player: Vault{
+class Player{
     //number ID to identify the player
     var id : Int
     //name of the player
@@ -18,7 +18,12 @@ class Player: Vault{
         self.id = id
     }
     
-    public func keyInput() -> Int{
+    
+    // ///////////////////
+    // MARK: NAME       //
+    // //////////////////
+    
+    func keyInput() -> Int{
         let input = readLine()
         let number = input!
         let numberCharacters = NSCharacterSet.decimalDigits.inverted
@@ -27,19 +32,6 @@ class Player: Vault{
         } else {
             print("Veuillez entrer un chiffre")
             return 0
-        }
-    }
-    
-    // ///////////////////
-    // MARK: NAME       //
-    // //////////////////
-    
-    // func to enter the player name
-    public func getPlayerName(){
-        print("Entrez le nom du joueur \(self.id)")
-        print()
-        if let playerName = readLine(){
-            self.name = playerName //player.name = playername
         }
     }
     
@@ -54,11 +46,48 @@ class Player: Vault{
             print()
         }
         return name
-}
+    }
+    
+    // func to enter the player name
+    public func getPlayerName(){
+        print("Entrez le nom du joueur \(self.id)")
+        print()
+        if let playerName = readLine(){
+            self.name = playerName
+        }
+    }
+   
 
     // ///////////////////
     // MARK: CREATION TEAM//
     // //////////////////
+    
+    //func to create the team of 3 char (maximum)
+    public func createTeamPlayer(){
+        getPlayerName()
+        print("\(self.name) va composer son équipe")
+        print()
+        while playerTeam.count<3{
+            let count = playerTeam.count
+            let char = createChar(count : count)
+            
+            if playerTeam.contains(where: {$0.name == char.name}) {
+                print("Ce nom existe déjà, choisissez un autre nom.")
+            } else {
+            //store them in a player Array
+            playerTeam.append(char)
+            print("Votre hero a bien été crée")
+            print()
+            }
+            
+            //maximum team size is 3 and when the whole team is created show the team with the caracs
+            if playerTeam.count == 3{
+                print("\(self.name) est pret")
+                return showCaracTeam()
+            }
+            
+        }
+    }
     
     //func to show the carac of each job to make a choice
     func caracteristicClass() -> Int{
@@ -76,31 +105,8 @@ class Player: Vault{
         return userChoice
     }
     
-    //func to create the team of 3 char (maximum)
-    public func createTeamPlayer(){
-        getPlayerName()
-        print("\(self.name) va composer son équipe")
-        print()
-        while playerTeam.count<3{
-            let count = playerTeam.count
-            let char = createChar(count : count)
-            
-            //store them in a player Array
-            playerTeam.append(char)
-            print("Votre hero a bien été crée")
-            print()
-            
-            //maximum team size is 3 adn when the whole team is created show the team with the caracs
-            if playerTeam.count == 3{
-                print("\(self.name) est pret")
-                return showCaracTeam()
-            }
-            
-        }
-    }
-    
     // func to create the char
-    public func createChar(count: Int) -> Character {
+    func createChar(count: Int) -> Character {
         let index = count + 1
         var userChoice: Int
         let charName = nameChar(index: index)
@@ -123,7 +129,9 @@ class Player: Vault{
         }
         
         return character
-}
+    }
+    
+   
     
     // ///////////////////
     // MARK: CHOICE     //
@@ -258,7 +266,7 @@ class Player: Vault{
         chooseChar(charac: &characters)
         
         //Random: Random spawn a vault
-        randomSpawnWeapons(for: characters[0])
+        Vault.randomSpawnWeapons(for: characters[0])
         
         //2a: Heal a teammate
         if characters[0].classe == .Wizard{
@@ -347,6 +355,11 @@ class Player: Vault{
         for i in 0..<playerTeam.count{
             print("Heros n°\(i+1)" + "\(showCaracTeamDetail(id: i))")
         }
+    }
+    
+    //func to check if all the characters in the team are dead 
+    func checkIsTeamDead() -> Bool{
+        return playerTeam.filter {$0.healthpoint <= 0}.count == playerTeam.count
     }
 }
 

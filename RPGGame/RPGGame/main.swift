@@ -12,3 +12,4 @@ let player1 = Player(id:1)
 let player2 = Player(id:2)
 var game = Game(player1:player1, player2:player2)
 game.newGame()
+

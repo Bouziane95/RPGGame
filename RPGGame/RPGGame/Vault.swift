@@ -13,7 +13,7 @@ class Vault{
      all the random weapons are stored in array of weapons(randomWeaponsG,
      the index from 0 to 3 are warrior type weapons and index from 4 to 6 are mage type weapons*/
     
-    func randomSpawnWeapons(for hero: Character){
+    static func randomSpawnWeapons(for hero: Character){
         //array of random weapons
         let randomWeaponsG = [Excalibur(),WoodenSword(), Spoon(), Arc(), WoodenStaff(), GandalfScepter(), ElderWand()]
         
@@ -21,11 +21,11 @@ class Vault{
         if hero.classe == .Wizard{
             //weapons with index 4 to 6 are for the wizard class
             let randomWeaponWizard = Int(arc4random_uniform(UInt32(3) + 3))
-            vaultSpawn(randomWeapon: randomWeaponWizard, hero: hero, randomWeaponsG: randomWeaponsG)
+            Vault.vaultSpawn(randomWeapon: randomWeaponWizard, hero: hero, randomWeaponsG: randomWeaponsG)
         }else{
             //weapons with index 0 to 3 are for the others class
             let randomWeapons = Int(arc4random_uniform(UInt32(3)))
-            vaultSpawn(randomWeapon: randomWeapons, hero: hero, randomWeaponsG: randomWeaponsG)
+            Vault.vaultSpawn(randomWeapon: randomWeapons, hero: hero, randomWeaponsG: randomWeaponsG)
         }
     }
     
@@ -33,7 +33,7 @@ class Vault{
      from 0 to 6, if the number is above 3 the vault spawns.
      you can equip the weapon from the vault or close the vault and keep your default weapon*/
     
-    func vaultSpawn(randomWeapon: Int, hero: Character, randomWeaponsG: [Weapon]){
+   static func vaultSpawn(randomWeapon: Int, hero: Character, randomWeaponsG: [Weapon]){
         //roll the dice !
         let interval = Int(arc4random_uniform(UInt32(6)))
         

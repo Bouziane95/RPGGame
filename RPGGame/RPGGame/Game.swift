@@ -21,12 +21,12 @@ struct Game{
         player1.createTeamPlayer()
         player2.createTeamPlayer()
         
-        while player1.playerTeam.count>0 && player2.playerTeam.count>0{
+        while player1.checkIsTeamDead() == false && player2.checkIsTeamDead() == false{
             //player 1 play
             player1.turn(against: player2)
             victory()
             //player 2 play
-            if player2.playerTeam.count>0{
+            if player2.checkIsTeamDead() == false{
                 player2.turn(against: player1)
                 victory()
             }
@@ -36,8 +36,8 @@ struct Game{
     }
     
     func victory(){
-        if player1.playerTeam.count <= 0 {print("\(player2.name) est victorieux !")}
-        else if player2.playerTeam.count <= 0 {print("\(player1.name) est victorieux !")}
+        if player1.checkIsTeamDead() {print("\(player2.name) est victorieux !")}
+        else if player2.checkIsTeamDead() {print("\(player1.name) est victorieux !")}
     }
     
     func rules(){

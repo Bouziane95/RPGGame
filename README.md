@@ -12,8 +12,11 @@ When you start the game you will have to choose between 4 characters here they a
  - Warrior : 
  
  ∙ Life : 100
+ 
  ∙ Weapon : Sword
+ 
  ∙ Skill : BattleCry ! 
+ 
  
   - Giant : 
  

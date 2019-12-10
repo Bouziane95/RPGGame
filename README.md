@@ -57,7 +57,7 @@ When you start the game you will have to choose between 4 characters here they a
  
  # Mystery Box - 🤔
  
- Each turn a dice is rolled and if the character do less than 4 he gains a mystery equipement (Good or Not) who can be a game changer !
+ Each turn a dice is rolled and if the character do less than 4 he gains a mystery weapon, Excalibur or a Spoon it's you and your luck !
  
 
 

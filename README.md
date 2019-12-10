@@ -18,20 +18,29 @@ When you start the game you will have to choose between 4 characters here they a
   - Giant : 
  
  ∙ Life : 200
+ 
  ∙ Weapon : Bare Hand
+ 
  ∙ Skill : Iron Wall ! 
  
-  - Wizard : 
+ 
+  - Wizard : (Can only heal !)
  
  ∙ Life : 30
+ 
  ∙ Weapon : Staff
+ 
  ∙ Skill : Peace ! 
+ 
  
   - Dwarf : 
  
  ∙ Life : 20
+ 
  ∙ Weapon : Axe
- ∙ Skill : Iron Skin ! 
+ 
+ ∙ Skill : Iron Skin !
+ 
  
  # Skills : 
  
